@@ -1,10 +1,10 @@
-package com.portfolio.MolinaRicardo;
+package com.portfolio.Molina;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MolinaRicardoApplicationTests {
+class MolinaApplicationTests {
 
 	@Test
 	void contextLoads() {

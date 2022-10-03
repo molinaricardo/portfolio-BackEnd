@@ -1,13 +1,13 @@
-package com.portfolio.MolinaRicardo;
+package com.portfolio.Molina;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MolinaRicardoApplication {
+public class MolinaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MolinaRicardoApplication.class, args);
+		SpringApplication.run(MolinaApplication.class, args);
 	}
 
 }
