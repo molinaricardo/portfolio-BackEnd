@@ -8,6 +8,7 @@ import com.portfolio.Molina.Entity.Persona;
 import com.portfolio.Molina.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,10 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @author mabel
  */
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
     
-    @GetMapping("personas/traer")
+    @GetMapping("/personas/traer")
     public List<Persona> getPersona(){
         return ipersonaService.getPersona();
     }
@@ -42,10 +44,10 @@ public class PersonaController {
         return "la persona fue eliminada correctamente";
     }
     //URL:PUERTO/personas/editar/4/nombre & apellido & img
-    @PutMapping("/personas/editar/(id)")
+    @PutMapping("/personas/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
-                                @RequestParam("Nombre") String nuevoNombre,
-                                @RequestParam("Apellido") String nuevoApellido,
+                                @RequestParam("nombre") String nuevoNombre,
+                                @RequestParam("apellido") String nuevoApellido,
                                 @RequestParam("img") String nuevoImg){
         Persona persona = ipersonaService.findPersona(id);
         
@@ -55,7 +57,12 @@ public class PersonaController {
         
         ipersonaService.savePersona(persona);
         return persona;
-}
+    }
+    
+    @GetMapping("/personas/traer/perfil")
+    public Persona findPersona(){
+        return ipersonaService.findPersona((long)1);
+    }
                                 
-    }   
+}   
     
